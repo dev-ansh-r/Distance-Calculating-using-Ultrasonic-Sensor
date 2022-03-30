@@ -21,13 +21,13 @@ void loop(){
   Blynk.run();
   digitalWrite(triggerPin, LOW);
   delayMicroseconds(2);
-  digitalWrite(triggerPin, HIGH);
+  digitalWrite(triggerPin, HIGH);//use this to initiate the sound waves transmision
   delayMicroseconds(10);
   digitalWrite(triggerPin, LOW);
-  duration = pulseIn(echo, HIGH);
-  distance= duration*0.034/2;
+  duration = pulseIn(echo, HIGH);//use this to get the time duration of the wave travel
+  distance= duration*0.034/2; // from duration get the distance between the obstacle and sensor.
   Blynk.virtualWrite(V5, distance);
     }
-  Serial.print("Distance: ");
+  Serial.print("Distance: ");// print duration and distance
   Serial.println(distance);
 }
