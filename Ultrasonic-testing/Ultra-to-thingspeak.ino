@@ -3,8 +3,8 @@
 
 #define LEDonBoard 2
 String apiKey = "*****####*****"; //--> Enter your Write API key from ThingSpeak
-int Trig =2;
-int Echo =3;
+int trigPin =2;
+int echoPin =3;
 
 long duration;
 int distance; 
@@ -70,9 +70,7 @@ void loop() {
   if (client.connect(server,80))  {   //--> "184.106.153.149" or api.thingspeak.com  
     String postStr = apiKey;
     postStr +="&field1=";
-    postStr += String(t);
-    postStr +="&field2=";
-    postStr += String(h);
+    postStr += String(distance);
     postStr += "\r\n\r\n";
     client.print("POST /update HTTP/1.1\n");
     client.print("Host: api.thingspeak.com\n");
